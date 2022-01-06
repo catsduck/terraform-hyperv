@@ -1,5 +1,5 @@
 resource "hyperv_vhd" "vhd" {
-  path = "${local.vhd_path}\\${var.name_in}.vhdx"
+  path   = "${local.vhd_path}\\${var.name_in}.vhdx"
   source = var.source_vhd_in
 }
 
