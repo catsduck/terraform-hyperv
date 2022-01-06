@@ -1,6 +1,6 @@
 resource "hyperv_vhd" "vhd" {
   path   = "${local.vhd_path}\\${var.name_in}.vhdx"
-  source = var.source_vhd_in
+  source = lookup(local.base_vhds, var.distro_in, "ubuntu")
 }
 
 resource "hyperv_machine_instance" "hyperv_instance" {
