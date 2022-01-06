@@ -1,4 +1,4 @@
 output "name-and-ip-address" {
-  value       = [for x in module.instance : x]
+  value       = flatten([for x in module.instance : values(x)])
   description = "The name and IP address of the VM"
 }
