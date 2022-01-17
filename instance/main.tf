@@ -44,4 +44,18 @@ resource "hyperv_machine_instance" "hyperv_instance" {
     enable_host_resource_protection                   = false
     expose_virtualization_extensions                  = false
   }
+
+  connection {
+    type = "ssh"
+    user = "ansible"
+    private_key = "${file(var.ssh_key_path)}"
+    host = self.network_adaptors[0].ip_addresses[0]
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo hostnamectl set-hostname ${var.name_in}",
+      "sudo dhclient -r",
+      "sudo dhclient"
+    ]
+  }
 }

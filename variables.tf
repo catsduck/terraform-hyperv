@@ -7,3 +7,7 @@ variable "hyperv_user" {
 variable "hyperv_password" {
   sensitive = true
 }
+
+variable "ssh_key_path" {
+  sensitive = true
+}
