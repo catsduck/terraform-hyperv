@@ -47,7 +47,7 @@ resource "hyperv_machine_instance" "hyperv_instance" {
 
   connection {
     type = "ssh"
-    user = "ansible"
+    user = "ubuntu"
     private_key = "${file(var.ssh_key_path)}"
     host = self.network_adaptors[0].ip_addresses[0]
   }
