@@ -54,8 +54,7 @@ resource "hyperv_machine_instance" "hyperv_instance" {
   provisioner "remote-exec" {
     inline = [
       "sudo hostnamectl set-hostname ${var.name_in}",
-      "sudo dhclient -r",
-      "sudo dhclient"
+      "sudo netplan apply"
     ]
   }
 }
